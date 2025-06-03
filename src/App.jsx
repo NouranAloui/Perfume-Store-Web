@@ -12,6 +12,8 @@ const Mens = lazy(() => import('./pages/Mens'));
 const Brands = lazy(() => import('./pages/Brands'));
 const AdminSignIn = lazy(() => import('./pages/AdminSignIn'));
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+
 
 // Main App Component
 function AppContent() {
@@ -32,6 +34,8 @@ function AppContent() {
 
           <Route path="/admin/signin" element={<AdminSignIn />} />
           <Route path="/admin/dashboard" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
 
