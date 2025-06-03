@@ -7,7 +7,6 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
 function Home() {
- 
   const [itemsNewest, setItemsNewest] = useState([]);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
