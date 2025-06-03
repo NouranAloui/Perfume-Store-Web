@@ -29,8 +29,11 @@ export default function Womens() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const res = await axios.get(`https://683e08ca1cd60dca33da3eac.mockapi.io/products`);
-        setItems(useFilterByCategory(res.data, 'women'));
+        const response = await fetch('https://683e08ca1cd60dca33da3eac.mockapi.io/products'); 
+        const data = await response.json();
+        
+        const filteredItems = useFilterByCategory(data, 'women');
+        setItems(filteredItems);
         setLoading(false);
       } catch (err) {
         setError(err.message);
@@ -40,7 +43,6 @@ export default function Womens() {
 
     fetchData();
   }, []);
- 
 
   if (loading) {
     return (
